@@ -1,6 +1,6 @@
-opencv-contrib-python
 streamlit
-opencv-python
+opencv-python-headless
 numpy
 pillow
+
 
