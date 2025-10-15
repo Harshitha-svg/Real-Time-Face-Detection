@@ -32,7 +32,7 @@ This project demonstrates **real-time face detection** using **OpenCV** and **St
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/real-time-face-detection.git
+git clone https://github.com/<Harshitha-svg>/real-time-face-detection.git
 cd real-time-face-detection
 ```
 
