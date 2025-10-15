@@ -42,7 +42,7 @@ def detect_faces():
             cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
         # Display the resulting frame with face detection
-        cv2.imshow('Face Detection', frame)
+        st.imshow(frame,channel="BGR")
 
         # Break the loop if 'q' key is pressed
         if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -95,3 +95,4 @@ if st.button("Open Camera"):
 uploaded_image = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 if uploaded_image is not None:
     detect_faces_in_image(uploaded_image)
+
