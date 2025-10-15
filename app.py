@@ -8,7 +8,7 @@ from PIL import Image  # Importing the Python Imaging Library for image processi
 # Function to detect faces in live camera stream
 def detect_faces():
     # Create the haar cascade for face detection using a pre-trained XML file
-    faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+    faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
     # Explanation:
     # Pre-trained Model: The term "pre-trained model" refers to a machine learning model that has already been trained on a large dataset for a specific task. In this case, the pre-trained model is for face detection.
     # Haar Cascade Classifier: Haar Cascade is a machine learning-based approach that is used to identify objects in images or video streams. It works by training a cascade function on positive and negative images. The cascade function contains multiple stages, each of which contains a set of classifiers.
@@ -95,4 +95,5 @@ if st.button("Open Camera"):
 uploaded_image = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 if uploaded_image is not None:
     detect_faces_in_image(uploaded_image)
+
 
