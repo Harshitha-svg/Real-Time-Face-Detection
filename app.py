@@ -40,21 +40,30 @@ def detect_faces_from_camera_input(picture):
 
 
 # -------------------- Streamlit UI --------------------
-st.title("📸 Real-Time Face Detection App")
-st.write("Detect faces from uploaded images or directly using your webcam!")
+st.title("📸 Face Detection App")
+st.subheader("Choose an option below to detect faces:")
 
-# Upload image section
+# Option 1: Live Camera (only works when running locally, not on Streamlit Cloud)
+if st.button("Open Live Camera"):
+    if not st.runtime.is_streamlit_cloud():
+        detect_faces()
+    else:
+        st.warning("🚫 Live webcam access isn't supported on Streamlit Cloud. Try uploading an image or using the camera input below.")
+
+# Option 2: Upload an image
 uploaded_image = st.file_uploader("📁 Upload an image", type=["jpg", "jpeg", "png"])
 if uploaded_image is not None:
     detect_faces_in_image(uploaded_image)
 
-# Streamlit camera input section
+# Option 3: Use Streamlit's built-in camera input
 st.markdown("---")
-st.subheader("🎥 Take a picture using your webcam:")
-picture = st.camera_input("Capture image")
+st.subheader("🎥 Or take a picture using your webcam:")
+picture = st.camera_input("Take a picture")
 if picture:
     detect_faces_from_camera_input(picture)
 
+
 st.markdown("---")
 st.info("Developed by Harshitha 💻 | Powered by OpenCV + Streamlit")
+
 
